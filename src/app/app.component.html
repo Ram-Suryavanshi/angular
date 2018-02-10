@@ -1,3 +1,27 @@
-<h1>
-  {{title}}
+
+<div class="container">
+
+<h1 class="jumbotron">
+  {{title}} 
+
+  <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+
+   <ul  *ngFor="let item of courses" >
+     <li>{{item}}</li>
+   </ul>
+ 
+     <div class="card">
+       <div class="card-body">
+         <blockquote class="blockquote">
+           <p>{{summary | pipes:70}}</p>
+           <footer class="card-blockquote">Footer<cite title="Source title">Source title</cite></footer>
+         </blockquote>
+       </div>
+     </div>
+     <br/>
+   <div class="form-group">
+    <input [(ngModel)]="test" type="text">
+   </div>
+   <h6>{{test | uppercase}}</h6>
 </h1>
+</div>

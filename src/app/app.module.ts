@@ -7,15 +7,21 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PipesPipe } from './pipes.pipe';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { PanelComponent } from './panel/panel.component';
+import { DirectiveComponent } from './directive/directive.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     PipesPipe,
-    FavouriteComponent
+    FavouriteComponent,
+    PanelComponent,
+    DirectiveComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule
   ],

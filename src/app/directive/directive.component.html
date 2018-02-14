@@ -1,0 +1,50 @@
+<!-- Old Technique -->
+<div *ngIf="list.length > 0">
+  <p> We have an list;</p>
+</div>
+<div *ngIf="list.length == 0">
+ <p> We don't have an list;</p>
+</div>
+
+<!-- Use if else -->
+<!-- <div *ngIf="list.length > 0;then islist else noList" ></div>
+<ng-template #isList>
+  <p> We have an list</p>
+</ng-template>
+<ng-template #noList>
+  <p> We don't have an list</p>
+</ng-template> -->
+
+<h5>Another way to show and hide list usign [hiddden] attribute</h5>
+<div [hidden]="list.length <= 0">
+  <p> We have an list;</p>
+</div>
+<div [hidden]="list.length > 0">
+ <p> We don't have an list;</p>
+</div>
+
+<h5>ng-switch Directive</h5>
+<div class="nav nav-pills">
+  <li class="nav-item"><a [class.active]="viewMode =='map'" (click)="viewMode='map'" class="nav-link" >Tab1</a></li>
+  <li class="nav-item"><a  [class.active]="viewMode =='list'" (click)="viewMode='list'" class="nav-link" >Tab2</a></li>
+</div>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">
+    <div  class="card card-body">
+        This is Map body...
+    </div>
+  </div>
+  <div *ngSwitchCase="'list'">
+    <div class="card card-body">
+      This is List body...
+    </div>
+  </div>
+  <div *ngSwitchDefault >Otherwise</div>
+</div>
+<br>
+
+
+
+
+
+

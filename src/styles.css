@@ -1,3 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-@import "~font-awesome/css/font-awesome.css"
+@import "~font-awesome/css/font-awesome.css";
+
+body, div{
+  font-size: 18px;
+}
+
+p{
+  font: 1em sans-serif;
+  font-size:18px;
+}

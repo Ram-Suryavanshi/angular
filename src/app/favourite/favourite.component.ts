@@ -11,8 +11,8 @@ export class FavouriteComponent implements OnInit {
   @Output('change') change = new EventEmitter();
   constructor() {
     this.isFavourite = true; 
-   }
-
+  }
+  
   ngOnInit() {
   }
 

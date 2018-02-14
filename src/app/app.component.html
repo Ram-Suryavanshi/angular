@@ -2,26 +2,57 @@
 <div class="container">
 
 <h1 class="jumbotron">
-  {{title}} 
 
-  <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
 
-   <ul  *ngFor="let item of courses" >
-     <li>{{item}}</li>
-   </ul>
+ <h2> {{title}} </h2><hr>
+
+  <!--cCustom panel Component -->
+  <app-panel>
+      <ng-container class="header">
+       <h5>Heading</h5>
+      </ng-container>
+      <ng-container class="body">
+        <h5>This is the best story...</h5>
+        <h6>Once apon a time, there was a ghost in jungle. He was very kind and help to anyone who get stuck in that jungle.</h6>
+       
+        <!-- favourite Component --> 
+        <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+        <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+        <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+        <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+        <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
+      
+      </ng-container>
+      <ng-container class="footer">
+        <h5>footer</h5>
+      </ng-container>
+  </app-panel>
+
+  <!-- favourite Component --> 
+  <!-- <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite> -->
+   <br>
+
+  <!-- directive Component -->
+  <h2>This is ng-directive section:</h2><hr>
+  <directive></directive>
+  
+  <h2>This is pipes section:</h2><hr>
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote">
+        <p>{{summary | pipes:70}}</p>
+        <footer class="card-blockquote">Footer<cite title="Source title">Source title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <br/>
+  
+
  
-     <div class="card">
-       <div class="card-body">
-         <blockquote class="blockquote">
-           <p>{{summary | pipes:70}}</p>
-           <footer class="card-blockquote">Footer<cite title="Source title">Source title</cite></footer>
-         </blockquote>
-       </div>
-     </div>
-     <br/>
-   <div class="form-group">
+  <h2>This is Two-way Binding section:</h2><hr>
+  <div class="form-group">
     <input [(ngModel)]="test" type="text">
-   </div>
-   <h6>{{test | uppercase}}</h6>
+  </div>
+  <h6>{{test | uppercase}}</h6>
 </h1>
 </div>

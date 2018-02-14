@@ -1,3 +1,4 @@
+<h5>ng-If Directive</h5>
 <!-- Old Technique -->
 <div *ngIf="list.length > 0">
   <p> We have an list;</p>
@@ -42,6 +43,42 @@
   <div *ngSwitchDefault >Otherwise</div>
 </div>
 <br>
+
+<h5>The ngFor Directive</h5>
+<button type="button" (click)="loadContact()" class="btn btn-success pull-right">Load Contact</button>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Sr.</th>
+      <th>Name</th>
+      <th>Remove</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of contact trackBy: trackContact ; let i = index ; let isEven = even; let isOdd = odd ">
+      <td>{{i}}</td>
+      <td> {{item.name}}
+         <span *ngIf="isOdd"><i class="fa fa-child" aria-hidden="true"></i></span> 
+         <span *ngIf="isEven"><i class="fa fa-smile-o" aria-hidden="true"></i></span> 
+      </td>
+      <td>
+          <span class="badge badge-danger" (click)="deleteContac(item)">Remove</span>
+      </td>
+      <td>
+          <span class="badge badge-warning" (click)="updateContac(item)">Update</span>
+      </td>
+    </tr>
+  </tbody>
+</table> 
+
+<!-- trackBy: id > is helpfull when we load object in memory, if object in memory it will not load again  -->
+<!-- <ul>
+  <li *ngFor="let item of contact trackBy:trackContact">
+    {{item.name}}
+  </li>
+</ul> -->
+<button type="button" (click)="addContact()" class="btn btn-info">Add Contact</button>
 
 
 

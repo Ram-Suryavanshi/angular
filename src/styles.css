@@ -10,3 +10,7 @@ p{
   font: 1em sans-serif;
   font-size:18px;
 }
+
+table > th,td,tr{
+  font-size: 18px;
+}

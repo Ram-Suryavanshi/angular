@@ -1,5 +1,7 @@
-<span class="fa"
-  [class.fa-star]="isFavourite"
-  [class.fa-star-o]="!isFavourite"
+<span class="fa" 
+  [ngClass]="{
+   'fa-star':isFavourite,
+   'fa-star-o':!isFavourite
+  }" 
   (click)="onClick()">
 </span>

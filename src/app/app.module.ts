@@ -10,6 +10,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { PanelComponent } from './panel/panel.component';
 import { DirectiveComponent } from './directive/directive.component';
 import { CommonModule } from '@angular/common';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     PipesPipe,
     FavouriteComponent,
     PanelComponent,
-    DirectiveComponent
+    DirectiveComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,93 @@
+<h2>Template Driven From :</h2> <hr>
+<div class="card card-body">
+    <form  (ngSubmit)="submitMethod(refForm)" #refForm="ngForm">
+        <div class="from-group">
+          <label for="firstName">First Name</label>
+          <input ngModel  name="firstName"  class="form-control" #firstName="ngModel" type="text" (change)="log(firstName)"
+             minlength="5" pattern="Ramling" required>
+            <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">
+              <div *ngIf="firstName.errors.required">first name field required</div>
+              <div *ngIf="firstName.errors.minlength">first name field minimum 5 chars</div>
+              <div *ngIf="firstName.errors.pattern">first name field pattern doesn't match </div>
+            </div>
+        </div>
+
+        <div class="from-group">
+          <label for="lastName">Last Name</label>
+          <input ngModel  name="lastName"  class="form-control"  #lastName="ngModel" type="text" (change)="log(lastName)"
+            required >
+        </div>
+
+        <!-- Oject contains another oject called contact -->
+        <div ngModelGroup="contact" #contact="ngModelGroup">
+          <span *ngIf="contact.valid" ></span>
+          <div class="from-group">
+            <label for="Contact">Contact Number</label>
+            <input ngModel  name="contact"  class="form-control" #contact="ngModel" type="text" (change)="log(contact)"
+              required >
+          </div>
+        </div>
+
+        <div class="from-group">
+          <label for="password">Password</label>
+          <input ngModel  name="password"  class="form-control"  #password="ngModel" type="password" (change)="log(password)"
+            required >
+        </div>
+
+        <div class="from-group">
+          <label for="confirm">Confirm password</label>
+          <input ngModel  name="confirm"  class="form-control"  #confirm="ngModel" type="password" (change)="log(confirm)"
+            required >
+        </div>
+
+        <br>
+        <div class="radio" *ngFor="let type of gender" >
+            <label for="male">{{type.gen}}</label>
+            <input type="radio" ngModel name="gender" [value]="type.id">
+        </div>
+       
+        <div class="from-group">
+          <label for="selectContact">Select Contact</label>
+          <select name="selectedContact" id="selectedContact" ngModel class="form-control"> 
+            <!-- For bing the object on select use <[ngValue]="contact"> instead [value] property binding-->
+            <option *ngFor="let contact of contactList"  [value]="contact.id" >{{contact.name}}</option>
+          </select>
+        </div>
+  
+        <div class="checkbox">
+            <label>Show Form Object</label>
+            <input type="checkbox" ngModel name="isChecked">
+        </div>
+       <div class="card card-header">
+            <p>{{refForm.value | json}}</p> 
+        </div>
+        <br>
+        <button type="submit" [disabled]="!refForm.valid" class="btn btn-primary pull-right">Submit</button>
+        
+    </form>
+</div>
+<br>
+<!-- Reactive Form -->
+<h2>Reactive  From :</h2> <hr>
+<div class="card card-body">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label for="username">Email</label>
+      <input formControlName="userName" type="text"  class="form-control">
+    </div>
+    <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
+      <div *ngIf="userName.errors.required">first name field required</div>
+      <div *ngIf="userName.errors.minlength">first name field minimum {{userName.errors.minlength.requiredLength}} chars</div>
+      <div *ngIf="userName.errors.checkSpecialSymbol">first name field pattern doesn't match </div>
+    </div>
+
+    <div class="form-group">
+      <label for="">Password</label>
+      <input formControlName="password" type="password"  class="form-control">
+    </div>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary pull-right">Submit</button>
+        
+  </form>
+</div>
+
+

@@ -23,9 +23,9 @@
 <div [hidden]="list.length > 0">
  <p> We don't have an list;</p>
 </div>
-
+<br>
 <h5>ng-switch Directive</h5>
-<div class="nav nav-pills">
+<div class="nav nav-tabs">
   <li class="nav-item"><a [class.active]="viewMode =='map'" (click)="viewMode='map'" class="nav-link" >Tab1</a></li>
   <li class="nav-item"><a  [class.active]="viewMode =='list'" (click)="viewMode='list'" class="nav-link" >Tab2</a></li>
 </div>
@@ -45,41 +45,44 @@
 <br>
 
 <h5>The ngFor Directive</h5>
-<button type="button" (click)="loadContact()" class="btn btn-success pull-right">Load Contact</button>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Sr.</th>
-      <th>Name</th>
-      <th>Remove</th>
-      <th>Update</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of contact trackBy: trackContact ; let i = index ; let isEven = even; let isOdd = odd ">
-      <td>{{i}}</td>
-      <td> {{item.name}}
-         <span *ngIf="isOdd"><i class="fa fa-child" aria-hidden="true"></i></span> 
-         <span *ngIf="isEven"><i class="fa fa-smile-o" aria-hidden="true"></i></span> 
-      </td>
-      <td>
-          <span class="badge badge-danger" (click)="deleteContac(item)">Remove</span>
-      </td>
-      <td>
-          <span class="badge badge-warning" (click)="updateContac(item)">Update</span>
-      </td>
-    </tr>
-  </tbody>
-</table> 
+<button type="button" (click)="loadContact()" class="btn btn-success  col-md-2">Load Contact</button>  
+<button type="button" (click)="addContact()" class="btn btn-info col-md-2">Add Contact</button>
 
-<!-- trackBy: id > is helpfull when we load object in memory, if object in memory it will not load again  -->
-<!-- <ul>
-  <li *ngFor="let item of contact trackBy:trackContact">
-    {{item.name}}
-  </li>
-</ul> -->
-<button type="button" (click)="addContact()" class="btn btn-info">Add Contact</button>
-
+<div class="card card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Name</th>
+          <th>Remove</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of contact trackBy: trackContact ; let i = index ; let isEven = even; let isOdd = odd ">
+          <td>{{i}}</td>
+          <td> {{item.name}}
+             <span *ngIf="isOdd"><i class="fa fa-child" aria-hidden="true"></i></span> 
+             <span *ngIf="isEven"><i class="fa fa-smile-o" aria-hidden="true"></i></span> 
+          </td>
+          <td>
+              <span class="badge badge-danger" (click)="deleteContac(item)">Remove</span>
+          </td>
+          <td>
+              <span class="badge badge-warning" (click)="updateContac(item)">Update</span>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
+    
+    <!-- trackBy: id > is helpfull when we load object in memory, if object in memory it will not load again  -->
+    <!-- <ul>
+      <li *ngFor="let item of contact trackBy:trackContact">
+        {{item.name}}
+      </li>
+    </ul> -->
+  </div>
+  
 
 
 

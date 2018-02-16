@@ -1,20 +1,18 @@
 
 <div class="container">
 
-<h1 class="jumbotron">
-
-
  <h2> {{title}} </h2><hr>
 
   <!--cCustom panel Component -->
   <app-panel>
       <ng-container class="header">
-       <h5>Heading</h5>
+       <h5>Custom Panel Component</h5>
       </ng-container>
       <ng-container class="body">
-        <h5>This is the best story...</h5>
-        <h6>Once apon a time, there was a ghost in jungle. He was very kind and help to anyone who get stuck in that jungle.</h6>
-       
+        <h5>Building Custom Panel Component</h5>
+        <p>
+            Panel is A card in Bootstrap 4 is a bordered box with some padding around its content. It includes options for headers, footers, content, colors, etc.
+        </p>
         <!-- favourite Component --> 
         <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
         <favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>
@@ -24,7 +22,7 @@
       
       </ng-container>
       <ng-container class="footer">
-        <h5>footer</h5>
+        <h5 class="pull-right">A Panel is a Card in Bootstrap-4</h5>
       </ng-container>
   </app-panel>
 
@@ -33,10 +31,11 @@
    <br>
 
   <!-- directive Component -->
-  <h2>This is ng-directive section:</h2><hr>
+  <h2>This is ng-directive:</h2><hr>
   <directive></directive>
   
-  <h2>This is pipes section:</h2><hr>
+  <p>&nbsp;</p>
+  <h2>This Is Custom pipe:</h2><hr>
   <div class="card">
     <div class="card-body">
       <blockquote class="blockquote">
@@ -47,16 +46,22 @@
   </div>
   <br/>
 
-  <h2>This Custom directive:</h2><hr>
+  <h2>This Custom input-formater directive:</h2><hr>
   <div class="form-group">
     <input  type="text" [appInputFormat]="'uppercase'">
   </div>
  
-  <h2>This is Two-way Binding section:</h2><hr>
+  <h2>This is Two-way Binding:</h2><hr>
   <div class="form-group">
+    <label for="test">Enter Text</label>
     <input [(ngModel)]="test" type="text">
   </div>
   <h6>{{test | uppercase}}</h6>
-</h1>
+   <br>
+   
+  <contact-form ></contact-form>
+
+  <h1>&nbsp;</h1>
+
 </div>
 

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'This is angular Application';
+  title = 'Angular 4+ Application';
   courses = [];  
 
   summary = "have the @Pipe decorator with pipe metadata that has a name property. This value will be used to call this pipe in template expressions. It must be a valid JavaScript identifier."

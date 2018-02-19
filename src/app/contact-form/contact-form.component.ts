@@ -1,6 +1,6 @@
 import { ContactFormValidator } from './contact-form-validator';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'contact-form',
@@ -9,7 +9,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor() { }
+  // FromBuilder
+  constructor(fb : FormBuilder) {
+    // this.form = fb.group({
+    //   name:[],
+    //   contct: fb.group({
+    //     email:[],
+    //     phone:[]
+    //   }),
+    //   topic:fb.array([]) 
+    // })  
+  }
 
   //Template form data declaration
 
@@ -46,7 +56,7 @@ export class ContactFormComponent implements OnInit {
   get userName(){
     return this.form.get('userName');
   }
-
+ 
   ngOnInit() {
   }
 
